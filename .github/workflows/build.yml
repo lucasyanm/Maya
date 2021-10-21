@@ -41,7 +41,6 @@ jobs:
           build-wrapper-win-x86-64 --out-dir ${{ env.BUILD_WRAPPER_OUT_DIR }}<insert_your_clean_build_command>
       - name: Run sonar-scanner
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
           sonar-scanner --define sonar.host.url="${{ env.SONAR_SERVER_URL }}" --define sonar.cfamily.build-wrapper-output="${{ env.BUILD_WRAPPER_OUT_DIR }}"
